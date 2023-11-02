@@ -1,7 +1,7 @@
 using microservice.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace microservice.DbContexts;
+namespace microservice.Adapters.Infrastructure;
 
 public class ProductContext : DbContext
 {

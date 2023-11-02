@@ -1,5 +1,7 @@
-using microservice.DbContexts;
-using microservice.Repository;
+using microservice.Adapters.Infrastructure;
+using microservice.Adapters.SQLiteAdapter;
+using microservice.Core;
+using microservice.Ports;
 using Microsoft.EntityFrameworkCore;
 
 var folder = Environment.SpecialFolder.LocalApplicationData;
@@ -10,7 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ProductContext>(o => o.UseSqlite($"Data Source={dbPath}"));
-builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ProductService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
