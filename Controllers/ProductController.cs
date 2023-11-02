@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace microservice.Controllers;
 
-[Route("api/{controller}")]
+[Route("api/[controller]")]
 [ApiController]
 public class ProductController : Controller
 {

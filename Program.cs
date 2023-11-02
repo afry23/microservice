@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var folder = Environment.SpecialFolder.LocalApplicationData;
 var path = Environment.GetFolderPath(folder);
-var dbPath = System.IO.Path.Join(path, "product.db");
+var dbPath = Path.Join(path, "product.db");
 
 var builder = WebApplication.CreateBuilder(args);
 
